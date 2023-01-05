@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="button-grid">
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+        <button class="grid-button"></button>
+    </div>
+    <script>
+
+
+        const words = [
+            "cambio",
+            "polizia",
+            "banda",
+            "ninja",
+            "squadra",
+            "partita",
+            "croce",
+            "rete",
+            "cuore",
+            "ago",
+            "australia",
+            "topo",
+            "caffè",
+            "radio",
+            "corno",
+            "hollywood",
+            "torcia",
+            "isola",
+            "cotone",
+            "bermuda",
+            "bottiglia",
+            "ghiaccio",
+            "braccio",
+            "avorio",
+            "chiave"
+        ];
+        const matrix = [
+            ['b', 'g', 'r', 'b', 'g'],
+            ['r', 'r', 'b', 'g', 'k'],
+            ['r', 'g', 'r', 'r', 'b'],
+            ['b', 'b', 'b', 'b', 'g'],
+            ['g', 'b', 'r', 'g', 'r']
+        ];
+
+        const buttons = document.querySelectorAll('.grid-button');
+        let i = 0;
+        buttons.forEach(button => {
+            button.textContent = words[i];
+            i++;
+        });
+        buttons.forEach((button, index) => {
+            const row = Math.floor(index / 5);
+            const col = index % 5;
+            const colorCode = matrix[row][col];
+            let color;
+
+            switch (colorCode) {
+                case 'k':
+                    color = 'black';
+                    break;
+                case 'b':
+                    color = 'blue';
+                    break;
+                case 'r':
+                    color = 'red';
+                    break;
+                case 'g':
+                    color = 'gray';
+                    break;
+            };
+
+            button.addEventListener('click', event => {
+                event.target.style.backgroundColor = color;
+            });
+        });
+    </script>
+</body>
+</html>
